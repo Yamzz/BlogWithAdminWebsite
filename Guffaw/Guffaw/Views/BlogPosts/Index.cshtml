@@ -1,0 +1,59 @@
+﻿@*@model IEnumerable<Guffaw.Entities.Entities.BlogPost>*@
+@model PagedList.IPagedList<Guffaw.Entities.Entities.BlogPost>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<link href="~/Content/PagedList.css" rel="stylesheet" />
+<h1 class="text-center">All Blogs Posted</h1>
+
+<div class="col-md-12 custyle">
+    <div>
+        @Html.ActionLink("+ Create New Blog Post", "Create", null, new { @class = "btn btn-primary" })
+    </div>
+
+    <table class="table table-striped custab" style="margin-top:20px">
+
+        <thead>
+            <tr>
+                <th> Title</th>
+                <th> Description </th>
+                <th> Date Time </th>
+                <th> Posted By </th>
+                <th class="text-center">Action</th>
+            </tr>
+        </thead>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Title)</td>
+                <td>@Html.DisplayFor(modelItem => item.Description)</td>
+                <td>@Html.DisplayFor(modelItem => item.DateTime)</td>
+                <td>@Html.DisplayFor(modelItem => item.PostedBy)</td>
+                <td class="text-center">
+                    <a class='btn btn-info btn-xs' href="@Url.Action("Edit", "BlogPosts", new {id = item.Id} )">
+                        <span class="glyphicon glyphicon-edit"></span> Edit
+                    </a>
+                    <a class='btn btn-dark btn-xs' href="@Url.Action("Details", "BlogPosts", new {id = item.Id} )">
+                        <span class="glyphicon glyphicon-info-sign"></span> Details
+                    </a>
+
+                    <a class="btn btn-danger btn-xs" href="@Url.Action("Delete", "BlogPosts", new {id = item.Id} )">
+                        <span class="glyphicon glyphicon-remove"></span> Del
+                    </a>
+                </td>
+            </tr>
+        }
+    </table>
+    <br />
+    <hr />
+</div>
+
+
+<h4>
+    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+</h4>
+@Html.PagedListPager(Model, page => Url.Action("Index",
+    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))

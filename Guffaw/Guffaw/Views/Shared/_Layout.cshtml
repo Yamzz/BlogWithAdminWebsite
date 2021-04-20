@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guffawcbd</title>
+
+
+    <!-- Bootstrap core CSS -->
+    @*<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">*@
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    @*<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">*@
+    <!-- Custom fonts for this template -->
+    @*<link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">*@
+    <link href="~/Content/all.min.css" rel="stylesheet" />
+
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    <!-- Plugin CSS -->
+    @*<link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">*@
+    <link href="~/Content/magnific-popup.css" rel="stylesheet" />
+
+    <!-- Custom styles for this template -->
+    @*<link href="css/creative.min.css" rel="stylesheet">*@
+    <link href="~/Content/creative.min.css" rel="stylesheet" />
+    <link href="~/Content/images/others/cbd_logo_icon.ico" rel="shortcut icon" type="image/x-icon" />
+
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body id="page-top" class="bg-light">
+
+    @Html.Partial("_TopNav")
+
+    <div class="container-fluid body-content" style="padding-left:0px; padding-right:0px;">
+        @RenderBody()
+        <br />
+        <hr style="height: 1px; max-width:100%" />
+        @Html.Partial("_Footer")
+    </div>
+
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    @*<script src="~/Scripts/bootstrap.min.js"></script>*@
+    <script src="~/Scripts/bootstrap.bundle.min.js"></script>
+    <!-- Plugin JavaScript -->
+    <script src="~/Scripts/jquery.easing.min.js"></script>
+    <script src="~/Scripts/scrollreveal.min.js"></script>
+    <script src="~/Scripts/jquery.magnific-popup.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="~/Scripts/creative.min.js"></script>
+
+    <script>
+
+        $(document).ready(function () {
+            checkForChanges();
+
+            $('#mainNav .navbar-nav > li.nav-item > a.nav-link').click(function (e) {
+                e.preventDefault();
+                checkForChanges();
+            });
+
+            $('#mainNav .navbar-brand').click(function (e) {
+                e.preventDefault();
+                checkForChanges();
+            });
+        });
+
+        function checkForChanges() {
+            //#mainNav.navbar-shrink .navbar-brand
+            if ($('#mainNav').hasClass('navbar-shrink') || $(window).width() <= 991) {
+                $('#nav_logo').attr('src', '/Content/Images/guffaw_logo_trans.png');
+            } else {
+                $('#nav_logo').attr('src', '/Content/Images/guffaw_logo_trans_white2.png');
+                //checkForChanges();
+            }
+            setTimeout(checkForChanges, 500);
+            //setTimeout(checkForChangesWidth, 500);
+        }
+
+        function checkForChangesWidth() {
+            if ($(window).width() >= 991) {
+                //alert('Less than 990');
+                $('#nav_logo').attr('src', '/Content/Images/guffaw_logo_trans_white2.png');
+                alert('More than 991');
+            }
+            else {
+                $('#nav_logo').attr('src', '/Content/Images/guffaw_logo_trans.png');
+            }
+        }
+
+    </script>
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

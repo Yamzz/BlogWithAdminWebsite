@@ -1,0 +1,216 @@
+﻿<style>
+
+    .aboutus-section {
+        padding: 90px 0;
+    }
+
+    .aboutus-title {
+        font-size: 30px;
+        letter-spacing: 0;
+        line-height: 32px;
+        margin: 0 0 39px;
+        padding: 0 0 11px;
+        position: relative;
+        text-transform: uppercase;
+        color: #000;
+    }
+
+        .aboutus-title::after {
+            background: #fdb801 none repeat scroll 0 0;
+            bottom: 0;
+            content: "";
+            height: 2px;
+            left: 0;
+            position: absolute;
+            width: 54px;
+        }
+
+    .aboutus-text {
+        color: #606060;
+        font-size: 13px;
+        line-height: 22px;
+        margin: 0 0 35px;
+    }
+
+    a:hover, a:active {
+        color: #ffb901;
+        text-decoration: none;
+        outline: 0;
+    }
+
+    .aboutus-more {
+        border: 1px solid #fdb801;
+        border-radius: 25px;
+        color: #fdb801;
+        display: inline-block;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 0;
+        padding: 7px 20px;
+        text-transform: uppercase;
+    }
+
+    .feature .feature-box .iconset {
+        background: #fff none repeat scroll 0 0;
+        float: left;
+        position: relative;
+        width: 18%;
+    }
+
+        .feature .feature-box .iconset::after {
+            background: #fdb801 none repeat scroll 0 0;
+            content: "";
+            height: 150%;
+            left: 43%;
+            position: absolute;
+            top: 100%;
+            width: 1px;
+        }
+
+    .feature .feature-box .feature-content h4 {
+        color: #0f0f0f;
+        font-size: 18px;
+        letter-spacing: 0;
+        line-height: 22px;
+        margin: 0 0 5px;
+    }
+
+
+    .feature .feature-box .feature-content {
+        float: left;
+        padding-left: 28px;
+        width: 78%;
+    }
+
+        .feature .feature-box .feature-content h4 {
+            color: #0f0f0f;
+            font-size: 18px;
+            letter-spacing: 0;
+            line-height: 22px;
+            margin: 0 0 5px;
+        }
+
+        .feature .feature-box .feature-content p {
+            color: #606060;
+            font-size: 13px;
+            line-height: 22px;
+        }
+
+    .icon {
+        color: #f4b841;
+        padding: 0px;
+        font-size: 40px;
+        border: 1px solid #fdb801;
+        border-radius: 100px;
+        color: #fdb801;
+        font-size: 28px;
+        height: 70px;
+        line-height: 70px;
+        text-align: center;
+        width: 70px;
+    }
+
+    /*#who_we_are_img {
+        max-width: 10%;
+        max-height: 50%;
+    }*/
+
+    /*#about_us_bg_img {
+        height: 50px;
+        width: 300px;
+    }*/
+
+</style>
+
+
+@* Styles *@
+
+
+<section id="services" class="bg-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="section-heading">FROM EARTH TO YOU!</h2>
+                <hr class="my-4">
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-6 text-center">
+                <div class="service-box mt-5 mx-auto">
+                    @*<i class="fas fa-4x fa-gem text-primary mb-3 sr-icon-1"></i>*@
+                    <i class="fas fa-4x fa-leaf text-warning mb-3 sr-icon-1"></i>
+                    <h3 class="mb-3">Organic</h3>
+                    <p class="text-muted mb-0">GMO FREE, Pesticide FREE, Nutrient Rich, promotes healthy planet soil. </p>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 text-center">
+                <div class="service-box mt-5 mx-auto">
+                    @*<i class="fas fa-4x fa-heart text-primary mb-3 sr-icon-2"></i>*@
+                    <img src="~/Content/Images/cbd_logo.PNG" class="img-responsive" width="90" height="80" />
+                    <h3 class="mb-3">CBD</h3>
+                    <p class="text-muted mb-0">Naturally maintain your mental and physical well being.!</p>
+                </div>
+            </div>
+
+
+
+            <div class="col-lg-3 col-md-6 text-center">
+                <div class="service-box mt-5 mx-auto">
+                    <i class="fas fa-4x fa-spa text-success mb-3 sr-icon-3"></i>
+
+                    <h3 class="mb-3">Vegan</h3>
+                    <p class="text-muted mb-0">No animal derived ingredients.</p>
+                </div>
+            </div>
+
+
+            <div class="col-lg-3 col-md-6 text-center">
+                <div class="service-box mt-5 mx-auto">
+                    <img id="who_we_are_img" src="~/Content/Images/Seedling_compostable.jpg" class="img-responsive" width="90" height="80" />
+                    @*<i class="fas fa-4x fa-recycle text-dark mb-3 sr-icon-4"></i>*@
+                    <h3 class="mb-3">Compostable</h3>
+                    <p class="text-muted mb-0">Will return to earth quickly and safely as soil in the right environmental conditions.</p>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+    <br />
+
+
+    <div class="aboutus-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="aboutus">
+                        <h2 class="text-center">Who We Are</h2>
+                        <hr />
+                        @*<h6>
+                           We provide speciality teas in the most eco friendly way,
+                           by preparing organically sourced ingredients and package them in compostable packaging.
+                        </h6>*@
+                        <p style="font-size:larger">
+                            We believe in changing how things are done to make our planet healthier by mixing
+                            CBD with organic ingredients in the most eco-friendly packaging.
+                            Read our leaflet and our blogs to find out more...
+                        </p>
+                    </div>
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <h4 class="text-center"><i>  We believe in making our planet healthier.  </i> </h4>
+                        <br />
+                        <img style="display:block; margin:auto;" src="~/Content/Images/Endocannabiniod system .jpg" alt="" >
+                    </div>
+                </div>             
+            </div>
+        </div>
+    </div>
+
+
+</section>
+
+

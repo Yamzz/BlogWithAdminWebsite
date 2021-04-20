@@ -1,0 +1,254 @@
+﻿@model Guffaw.Entities.Entities.BlogPost
+@{
+    ViewBag.Title = "Blog Post";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guffawcbd</title>
+    <!-- Bootstrap core CSS -->
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link href="~/Content/all.min.css" rel="stylesheet" />
+
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    <link href="~/Content/images/others/cbd_logo_icon.ico" rel="shortcut icon" type="image/x-icon" />
+
+    <!-- Plugin CSS -->
+    <link href="~/Content/magnific-popup.css" rel="stylesheet" />
+    <!-- Custom styles for this template -->
+    <link href="~/Content/creative.min.css" rel="stylesheet" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body id="page-top" class="bg-light">
+
+    @*@Html.Partial("_TopNav")*@
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light" id="mainNav" style="position:page; background-color:white;">
+
+        <div class="container">
+            <a class="navbar-brand js-scroll-trigger" href="@Url.Action("Index", "Home")#page-top">
+                <img id="nav_logo" src="~/Content/Images/guffaw_logo_trans.png" width="150" />
+            </a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive" >
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" style="color:black !important" href="@Url.Action("Index", "Home")#services">Who We Are</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" style="color:black !important" href="@Url.Action("Index", "Home")#download">Download</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" style="color:black !important" href="@Url.Action("Index", "Home")#portfolio">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" style="color:black !important" href="@Url.Action("Index", "Home")#blog">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" style="color:black !important" href="@Url.Action("Index", "Home")#contact">Contact Us</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid body-content" style="padding-left:0px; padding-right:0px;">
+
+        <br />
+        <div class="container">
+            <div class="well">
+                <div class="row"  style="background-color:white; padding-top:30px; padding-bottom:30px;border:solid 3px #b5aeae; border-radius:5px">
+                    <div class="col-md-12">
+                        <!-- Preview Image -->
+                        @{
+                            string filename = Path.GetFileName(Model.Image);
+                        }
+                        <div class="pull-left col-md-4 col-xs-12 thumb-contenido">
+                            <img class="center-block img-responsive border border-secondary" src="@Url.Content("~/Content/images/blog/" + filename)" />
+                        </div>
+                        <div class="">
+                            <h1 class="hidden-xs hidden-sm">
+                                @Html.DisplayFor(model => model.Title)
+                            </h1>
+                            <h5><strong>Author: @Html.DisplayFor(model => model.PostedBy)</strong></h5>
+                            <hr>
+                            <br />
+                            <p class="text-justify">
+                                @Html.DisplayFor(model => model.Description)
+                                <br><br>
+                            </p>
+                            <!-- blog post-->
+                            <p>
+                                @Html.Raw(Model.Post)
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="container">
+                        <hr>
+                        <h6 class="text-right">Published: @Model.DateTime.ToLongDateString() @*@Html.DisplayFor(model => model.DateTime.ToString())*@</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <br />
+        <hr style="height: 1px; max-width:100%" />
+
+        <footer class="bg-dark mt-5" style="color:white">
+            <div class="container-fluid bg-faded mt-5">
+                <div class="container">
+                    <div class="row py-3">
+                        <!-- footer column 1 start -->
+                        <div class="col-md-4">
+                            <!-- row start -->
+                            <div class="row py-2">
+                                <div class="col-sm-3 hidden-md-down">
+                                    <a class="bg-circle bg-dark js-scroll-trigger" href="@Url.Action("Index", "Home")#page-top">
+                                        <i class="fa fa-2x fa-fw fa-home" aria-hidden="true"></i>
+                                    </a>
+                                </div>
+                                <div class="col-sm-9">
+                                    <h4>Guffaw CBD</h4>
+                                    <p>Home</p>
+                                </div>
+                            </div>
+                            <!-- row end -->
+
+                            <div class="row py-2">
+                                <div class="col-sm-3 hidden-md-down">
+                                    <a class="bg-circle bg-success js-scroll-trigger" href="@Url.Action("Index", "Home")#portfolio">
+                                        <i class="fa fa-2x fa-fw fa-image" aria-hidden="true"></i>
+                                    </a>
+                                </div>
+                                <div class="col-sm-9">
+                                    <h4>Gallery</h4>
+                                    <p>See our images</p>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- footer column 1 end -->
+                        <!-- footer column 2 start -->
+                        <div class="col-md-4">
+                            <!-- row start -->
+                            <div class="row py-2">
+                                <div class="col-sm-3 hidden-md-down">
+                                    <a class="bg-circle bg-info js-scroll-trigger" href="@Url.Action("Index", "Home")#services">
+                                        <i class="fa fa-2x fa-fw fa-info" aria-hidden="true"></i>
+                                    </a>
+                                </div>
+                                <div class="col-sm-9">
+                                    <h4>Who We Are</h4>
+                                    <p>From Earth To You</p>
+                                </div>
+                            </div>
+                            <!-- row end -->
+                            <!-- row start -->
+                            <div class="row py-2">
+                                <div class="col-sm-3 hidden-md-down">
+                                    <a class="bg-circle bg-secondary js-scroll-trigger" href="@Url.Action("Index", "Home")#contact">
+                                        <i class="fa fa-2x fa-fw fa-address-card" aria-hidden="true"></i>
+                                    </a>
+                                </div>
+                                <div class="col-sm-9">
+                                    <h4>Contact Us</h4>
+                                    <p>Find us and reach us</p>
+                                    @*<p class=" ">We use <a class=" " href="/# ">cookies </a></p>*@
+                                </div>
+                            </div>
+                            <!-- row end -->
+                        </div>
+                        <!-- footer column 2 end -->
+                        <!-- footer column 3 start -->
+                        <div class="col-md-4">
+                            <!-- row starting  -->
+                            <div class="row py-2">
+                                <div class="col-sm-3 hidden-md-down">
+                                    <a class="bg-circle bg-danger js-scroll-trigger" href="@Url.Action("Index", "Home")#download">
+                                        <i class="fa fa-2x fa-fw fa-file-pdf-o" aria-hidden="true"></i>
+                                    </a>
+                                </div>
+                                <div class="col-sm-9">
+                                    <h4>Download Our Leaflet</h4>
+                                    <p> Spread the word</p>
+                                </div>
+                            </div>
+                            <!-- row ended -->
+                            <!-- row starting  -->
+                            <div class="row py-2">
+                                <div class="col-sm-3 hidden-md-down">
+                                    <a class="bg-circle bg-warning js-scroll-trigger" href="@Url.Action("Index", "Home")#blog">
+                                        <i class="fas fa-2x fa-fw fa-blog" aria-hidden="true"></i>
+                                        @*<i class="fas fa-blog"></i>*@
+                                    </a>
+                                </div>
+                                <div class="col-sm-9">
+                                    <h4>Our Blog</h4>
+                                    Read about our stories
+                                </div>
+                            </div>
+                            <!-- row ended -->
+                        </div>
+                        <!-- footer column 3 end -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="container-fluid bg-primary py-3">
+                <div class="container">
+                    <div class="row py-3">
+                        <div class="col-md-9">
+                            <p style="color:white">&copy; @DateTime.Now.Year - Guffaw. All right reserved.</p>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="d-inline-block">
+                                <div class="bg-circle-outline d-inline-block" style="background-color:#3b5998">
+                                    <a href="https://www.facebook.com/">
+                                        <i class="fa fa-2x fa-fw fa-facebook text-white"></i>
+                                    </a>
+                                </div>
+                                <div class="bg-circle-outline d-inline-block" style="background-color:#fb3958">
+                                    <a href="https://www.instagram.com/guffawcbd/" target="_blank">
+                                        <i class="fa fa-2x fa-fw fa-instagram text-white"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.bundle.min.js"></script>
+    <!-- Plugin JavaScript -->
+    <script src="~/Scripts/jquery.easing.min.js"></script>
+    <script src="~/Scripts/scrollreveal.min.js"></script>
+    <script src="~/Scripts/jquery.magnific-popup.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="~/Scripts/creative.min.js"></script>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+</body>
+</html>
+
+

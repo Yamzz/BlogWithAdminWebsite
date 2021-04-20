@@ -1,0 +1,67 @@
+﻿@model Guffaw.Entities.Entities.Contact
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1 class="text-center">Contact Details</h1>
+
+<div style="font-size:20px">
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name): 
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <hr>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email):
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <hr>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.Phonenumber)*@
+            Phone Number:
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Phonenumber)
+        </dd>
+
+        <hr>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Message): 
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Message)
+        </dd>
+
+        <hr>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.DateTime):*@
+            Date Time:
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DateTime)
+        </dd>
+
+    </dl>
+</div>
+<br />
+<hr />
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn btn-info" }) |
+    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-dark" })
+</p>

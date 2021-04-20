@@ -1,0 +1,36 @@
+﻿
+<style>
+    #download_leaflet {
+        background-image: url("../../Content/Images/guffaw_pdf_bg.PNG");
+        background-size: cover; /* <------ */
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+
+</style>
+
+<section class="bg-success" id="download">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h1 class="section-heading text-white">Download Our Leaflet</h1>
+                <hr class="light my-4">
+                <p class="text-white mb-1">
+                    Find out more about us and what we by downloading our leaflet describing our products and
+                    services we offer, how we plan to grow and many more!
+                </p>
+            </div>
+        </div>
+        <br />
+        <section id="download_leaflet" class="bg-white text-white" style="border:solid 3px #783b12">
+            <div class="container text-center text-capitalize">
+                @*<h2 class="text-black-50 mb-4">Get Our Free Leaflet here!</h2>*@
+                @*<a class="btn btn-light btn-xl js-scroll-trigger text-capitalize" href="#">Download Your Copy</a>*@
+            </div>
+        </section>
+    </div>
+    <div class="text-center" style="padding-top:10px;margin-top:10px">
+        @Html.ActionLink("Click Here To Download Your Copy", "DownloadFile", null, new { @class = "btn btn-dark" })
+    </div>
+
+</section>

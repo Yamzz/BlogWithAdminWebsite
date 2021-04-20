@@ -1,0 +1,87 @@
+﻿@model Guffaw.Models.HomeViewModel
+    @{ 
+        int numberOfCharacters = 100;
+    }
+
+<section class="bg-primary" id="blog">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h1 class="section-heading text-white">Our Blog</h1>
+                <hr class="light my-4">
+                <p class="text-white mb-4">
+                    Please take time to read about our stories
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <div id="demo" class="carousel slide" data-ride="carousel">
+            @{
+                int waveCounter = 0;
+                int blogsToSkips = 0;
+                int threeBlogs = 3;
+                int total = (Model.BlogPostVM.Count() / threeBlogs);
+                int remainder = (Model.BlogPostVM.Count() % threeBlogs);
+                int totalAmountOfBlogPosts = (total + remainder);
+            }
+            <!-- The slideshow -->
+            <div class="carousel-inner no-padding my-5 bg-light">
+                @{
+                    for (int i = 0; i < totalAmountOfBlogPosts; i++)
+                    {
+                        string itemClass = waveCounter++ == 0 ? "carousel-item active" : "carousel-item";
+                        blogsToSkips = (i == 0) ? 0 : blogsToSkips += threeBlogs;
+                        <div class="@itemClass">
+                            @foreach (var blog in Model.BlogPostVM.Skip(blogsToSkips).Take(threeBlogs))
+                            {
+                                string filename = Path.GetFileName(blog.Image);
+
+                                <div class="col-xs-4 col-sm-4 col-md-4" style="margin-bottom:10px; margin-top:10px; margin-right:-12px; margin-left:5px">
+                                    <div class="card-content" style="border-radius:5px;">
+                                        <div class="card-img">
+                                            <a href="@Url.Action("BlogPost", "Home", new { postId = blog.Id})">
+                                                <img class="img-responsive" src="@Url.Content("~/Content/Images/blog/" + filename)" alt="" style="height:250px !important;" />
+                                            </a>
+                                        </div>
+                                        <div class="card-desc" style="border-top:solid 2px #808080">
+                                            <h3>@Html.DisplayFor(modelItem => blog.Title)</h3>
+                                            <p>
+                                                @blog.Description.Substring(0, Math.Min(blog.Description.Length, @numberOfCharacters))
+                                                ...
+                                            </p>
+                                            <span class="posted_by">
+                                                By: @Html.DisplayFor(modelItem => blog.PostedBy)
+                                            </span>
+                                        </div>
+                                        <a href="@Url.Action("BlogPost", "Home", new { postId = blog.Id})" class="btn btn-outline-success" style="margin-left:15px;margin-bottom:5px;">Read More</a>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+        <hr style="border:solid 2px white" />
+
+    </div>
+
+        <br />
+        <div class="row">
+            <!-- Controls -->
+            <div class="controls pull-right hidden-xs col-md-6 offset-3">
+                <!-- Left and right controls -->
+                <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                    <span class="carousel-control-prev-icon sp btn btn-success" style="padding:20px;"></span>
+                </a>
+                <a class="carousel-control-next" href="#demo" data-slide="next">
+                    <span class="carousel-control-next-icon sp btn btn-success" style="padding:20px"></span>
+                </a>
+            </div>
+        </div>
+
+</section>
+
